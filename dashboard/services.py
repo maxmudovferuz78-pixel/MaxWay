@@ -19,15 +19,15 @@ def dictfetchone(cursor):
 
 def get_faculties():
     with closing(connection.cursor()) as cursor:
-        cursor.execute("""SELECT * from adminapp_faculty""")
+        cursor.execute("""SELECT * from dashboard_faculty""")
         faculties = dictfetchall(cursor)
         return faculties
 
 
 def get_groups():
     with closing(connection.cursor()) as cursor:
-        cursor.execute("""SELECT adminapp_group.id, adminapp_group.name, adminapp_faculty.name as faculty
-         from adminapp_group left join adminapp_faculty on adminapp_group.faculty_id = adminapp_faculty.id
+        cursor.execute("""SELECT dashboard_group.id, dashboard_group.name, dashboard_faculty.name as faculty
+         from dashboard_group left join dashboard_faculty on dashboard_group.faculty_id = dashboard_faculty.id
          """)
         groups = dictfetchall(cursor)
         return groups
@@ -35,33 +35,33 @@ def get_groups():
 
 def get_kafedra():
     with closing(connection.cursor()) as cursor:
-        cursor.execute("""SELECT * from adminapp_kafedra""")
+        cursor.execute("""SELECT * from dashboard_kafedra""")
         kafedra = dictfetchall(cursor)
         return kafedra
 
 
 def get_subject():
     with closing(connection.cursor()) as cursor:
-        cursor.execute("""SELECT * from adminapp_subject""")
+        cursor.execute("""SELECT * from dashboard_subject""")
         subjects = dictfetchall(cursor)
         return subjects
 
 
 def get_teacher():
     with closing(connection.cursor()) as cursor:
-        cursor.execute("""SELECT adminapp_teacher.id, adminapp_teacher.first_name, adminapp_teacher.last_name,
-        adminapp_teacher.age, adminapp_kafedra.name as kafedra_name, adminapp_subject.name as subject_name from 
-        adminapp_teacher left join adminapp_kafedra on adminapp_teacher.kafedra_id = adminapp_kafedra.id
-        left join adminapp_subject on adminapp_teacher.subject_id = adminapp_subject.id""")
+        cursor.execute("""SELECT dashboard_teacher.id, dashboard_teacher.first_name, dashboard_teacher.last_name,
+        dashboard_teacher.age, dashboard_kafedra.name as dashboard_name, dashboard_subject.name as subject_name from 
+        dashboard_teacher left join dashboard_kafedra on dashboard_teacher.kafedra_id = dashboard_kafedra.id
+        left join dashboard_subject on dashboard_teacher.subject_id = dashboard_subject.id""")
         teachers = dictfetchall(cursor)
         return teachers
 
 
 def get_student():
     with closing(connection.cursor()) as cursor:
-        cursor.execute("""SELECT adminapp_student.id, adminapp_student.first_name, adminapp_student.last_name, 
-        adminapp_student.age, 
-        adminapp_group.name as group_name, adminapp_student.image as image  from adminapp_student
-        left join adminapp_group on adminapp_student.group_id = adminapp_group.id""")
+        cursor.execute("""SELECT dashboard_student.id, dashboard_student.first_name, dashboard_student.last_name, 
+        dashboard_student.age, 
+        dashboard_group.name as group_name, dashboard_student.image as image  from dashboard_student
+        left join dashboard_group on dashboard_student.group_id = dashboard_group.id""")
         student = dictfetchall(cursor)
         return student

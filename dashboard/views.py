@@ -25,7 +25,7 @@ def login_page(request):
             login(request, user)
             return redirect("home_page")
 
-    return render(request, 'dashboad/login.html')
+    return render(request, 'dashboard/login.html')
 
 
 @login_required_decorator
@@ -46,7 +46,7 @@ def home_page(request):
             'students': len(students)
         }
     }
-    return render(request, '/dashbaod/index.html', ctx)
+    return render(request, 'dashboard/index.html', ctx)
 
 
 @login_required_decorator
@@ -60,7 +60,7 @@ def faculty_create(request):
         "model": model,
         "form": form
     }
-    return render(request, 'dashboad/faculty/form.html', ctx)
+    return render(request, 'dashboard/faculty/form.html', ctx)
 
 
 @login_required_decorator
@@ -74,7 +74,7 @@ def faculty_edit(request, pk):
         "model": model,
         "form": form
     }
-    return render(request, 'dashboad/faculty/form.html', ctx)
+    return render(request, 'dashboard/faculty/form.html', ctx)
 
 
 @login_required_decorator
@@ -91,7 +91,7 @@ def faculty_list(request):
     ctx = {
         "faculties": faculties
     }
-    return render(request, 'dashboad/faculty/list.html', ctx)
+    return render(request, 'dashboard/faculty/list.html', ctx)
 
 
 # KAFEDRA
@@ -116,7 +116,7 @@ def kafedra_create(request):
         "model": model,
         "form": form
     }
-    return render(request, 'dashboad/kafedra/form.html', ctx)
+    return render(request, 'dashboard/kafedra/form.html', ctx)
 
 
 @login_required_decorator
@@ -135,7 +135,7 @@ def kafedra_edit(request, pk):
         "model": model,
         "form": form
     }
-    return render(request, 'dashboad/kafedra/form.html', ctx)
+    return render(request, 'dashboard/kafedra/form.html', ctx)
 
 
 @login_required_decorator
@@ -151,7 +151,7 @@ def kafedra_list(request):
     ctx = {
         "kafedras": kafedras
     }
-    return render(request, 'dashboad/kafedra/list.html', ctx)
+    return render(request, 'dashboard/kafedra/list.html', ctx)
 
 
 # SUBJECT
@@ -166,7 +166,7 @@ def subject_create(request):
         "model": model,
         "form": form
     }
-    return render(request, 'dashboad/subject/form.html', ctx)
+    return render(request, 'dashboard/subject/form.html', ctx)
 
 
 @login_required_decorator
@@ -180,7 +180,7 @@ def subject_edit(request, pk):
         "model": model,
         "form": form
     }
-    return render(request, 'dashboad/subject/form.html', ctx)
+    return render(request, 'dashboard/subject/form.html', ctx)
 
 
 @login_required_decorator
@@ -196,7 +196,7 @@ def subject_list(request):
     ctx = {
         "subjects": subjects
     }
-    return render(request, 'dashboad/subject/list.html', ctx)
+    return render(request, 'dashboard/subject/list.html', ctx)
 
 
 # TEACHER
@@ -215,7 +215,7 @@ def teacher_create(request):
         "model": model,
         "form": form
     }
-    return render(request, 'dashboad/teacher/form.html', ctx)
+    return render(request, 'dashboard/teacher/form.html', ctx)
 
 
 @login_required_decorator
@@ -229,7 +229,7 @@ def teacher_edit(request, pk):
         "model": model,
         "form": form
     }
-    return render(request, 'dashboad/teacher/form.html', ctx)
+    return render(request, 'dashboard/teacher/form.html', ctx)
 
 
 @login_required_decorator
@@ -245,7 +245,7 @@ def teacher_list(request):
     ctx = {
         "teachers": teachers
     }
-    return render(request, 'dashboad/teacher/list.html', ctx)
+    return render(request, 'dashboard/teacher/list.html', ctx)
 
 
 # GROUP
@@ -260,7 +260,7 @@ def group_create(request):
         "model": model,
         "form": form
     }
-    return render(request, 'dashboad/group/form.html', ctx)
+    return render(request, 'dashboard/group/form.html', ctx)
 
 
 @login_required_decorator
@@ -274,7 +274,7 @@ def group_edit(request, pk):
         "model": model,
         "form": form
     }
-    return render(request, 'dashboad/group/form.html', ctx)
+    return render(request, 'dashboard/group/form.html', ctx)
 
 
 @login_required_decorator
@@ -290,7 +290,7 @@ def group_list(request):
     ctx = {
         "groups": groups
     }
-    return render(request, 'dashboad/group/list.html', ctx)
+    return render(request, 'dashboard/group/list.html', ctx)
 
 
 # STUDENT
@@ -305,7 +305,7 @@ def student_create(request):
         "model": model,
         "form": form
     }
-    return render(request, 'dashboad/student/form.html', ctx)
+    return render(request, 'dashboard/student/form.html', ctx)
 
 
 @login_required_decorator
@@ -319,7 +319,7 @@ def student_edit(request, pk):
         "model": model,
         "form": form
     }
-    return render(request, 'dashboad/student/form.html', ctx)
+    return render(request, 'dashboard/student/form.html', ctx)
 
 
 @login_required_decorator
@@ -335,12 +335,12 @@ def student_list(request):
     ctx = {
         "students": students
     }
-    return render(request, 'dashboad/student/list.html', ctx)
+    return render(request, 'dashboard/student/list.html', ctx)
 
 
 @login_required_decorator
 def profile(request):
-    return render(request, 'dashboad/profile.html')
+    return render(request, 'dashboard/profile.html')
 
 
 from django.shortcuts import render
